@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 
 @RestController
-@CrossOrigin(origins = "https://pruebafullstack.up.railway.app/")
+@CrossOrigin(origins = "https://JMM2904.github.io/Prueba-Fullstack-Angular-Spring/")
 public class DatosController {
 
     private final DatosService service;

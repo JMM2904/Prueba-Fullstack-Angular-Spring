@@ -4,22 +4,25 @@ import { Observable } from 'rxjs';
 import { Persona } from './models/persona';
 import { Serie } from './models/serie';
 import { Videojuego } from './models/videojuego';
-
-const API_BASE = 'http://localhost:8080';
+import { environment } from '../environments/environment';
 
 @Injectable({ providedIn: 'root' })
 export class DatosService {
+
+  // ✅ Definimos apiUrl dentro de la clase
+  private apiUrl = environment.apiUrl;
+  
   constructor(private http: HttpClient) {}
 
   getPersonas(): Observable<Persona[]> {
-    return this.http.get<Persona[]>(`${API_BASE}/personas`);
+    return this.http.get<Persona[]>(`${this.apiUrl}/personas`);
   }
 
   getSeries(): Observable<Serie[]> {
-    return this.http.get<Serie[]>(`${API_BASE}/series`);
+    return this.http.get<Serie[]>(`${this.apiUrl}/series`);
   }
 
   getVideojuegos(): Observable<Videojuego[]> {
-    return this.http.get<Videojuego[]>(`${API_BASE}/videojuegos`);
+    return this.http.get<Videojuego[]>(`${this.apiUrl}/videojuegos`);
   }
 }
